@@ -1,7 +1,7 @@
 import { DEVPOOL_OWNER_NAME, DEVPOOL_REPO_NAME, GitHubLabel, Labels, octokit } from "./directory";
-import { MetadataInterface } from "./sync-issue-meta-data";
+import { MetadataInterface } from "./update-issue";
 
-export async function setUnavailableLabelToIssue({ directoryIssue, partnerIssue, metaChanges, labelRemoved, originalLabels }: MetadataInterface) {
+export async function setUnavailableLabelToIssue({ directoryIssue, partnerIssue, issueDelta, labelRemoved, originalLabels }: MetadataInterface) {
   const hasUnavailableLabel = directoryIssue.labels.some((label) => (label as GitHubLabel).name === Labels.UNAVAILABLE);
   const isProjectAssigned = !!partnerIssue.assignees?.length;
   const isProjectOpen = partnerIssue.state === "open";
@@ -20,7 +20,7 @@ export async function setUnavailableLabelToIssue({ directoryIssue, partnerIssue,
         owner: DEVPOOL_OWNER_NAME,
         repo: DEVPOOL_REPO_NAME,
         issue_number: directoryIssue.number,
-        labels: metaChanges.labels ? labelRemoved.concat(Labels.UNAVAILABLE) : originalLabels.concat(Labels.UNAVAILABLE),
+        labels: issueDelta.labels ? labelRemoved.concat(Labels.UNAVAILABLE) : originalLabels.concat(Labels.UNAVAILABLE),
       });
       console.log(`Added label "${Labels.UNAVAILABLE}" to Issue #${directoryIssue.number}`);
     } catch (err) {
