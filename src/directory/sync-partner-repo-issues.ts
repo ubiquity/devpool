@@ -4,7 +4,7 @@ import { getIssueByLabel } from "./get-issue-by-label";
 import { getRepoCredentials } from "./get-repo-credentials";
 import { getRepositoryIssues } from "./get-repository-issues";
 import { newDirectoryIssue } from "./new-directory-issue";
-import { syncIssueMetaData as syncDirectoryIssue } from "./sync-issue-meta-data";
+import { updateDirectoryIssue } from "./update-issue";
 
 export async function syncPartnerRepoIssues({
   partnerRepoUrl,
@@ -36,7 +36,7 @@ export async function syncPartnerRepoIssues({
 
     if (directoryIssue) {
       // if it exists in the Directory, then update it
-      await syncDirectoryIssue({
+      await updateDirectoryIssue({
         partnerIssue: partnerIssue,
         directoryIssue: directoryIssue,
       });

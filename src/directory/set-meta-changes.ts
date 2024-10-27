@@ -1,8 +1,8 @@
 import { checkIfForked } from "./check-if-forked";
 import { DEVPOOL_OWNER_NAME, DEVPOOL_REPO_NAME, octokit } from "./directory";
-import { MetadataInterface } from "./sync-issue-meta-data";
+import { MetadataInterface } from "./update-issue";
 
-export async function setMetaChanges({ metaChanges, partnerIssue, directoryIssue, labelRemoved, originalLabels }: MetadataInterface) {
+export async function setMetaChanges({ issueDelta: metaChanges, partnerIssue, directoryIssue, labelRemoved, originalLabels }: MetadataInterface) {
   const shouldUpdate = metaChanges.title || metaChanges.body || metaChanges.labels;
 
   if (shouldUpdate) {
@@ -20,6 +20,7 @@ export async function setMetaChanges({ metaChanges, partnerIssue, directoryIssue
         title: directoryIssue.title,
         body: directoryIssueBody,
         labels: metaChanges.labels ? labelRemoved : originalLabels,
+        state: partnerIssue.state === "closed" ? "closed" : "open",
       });
     } catch (err) {
       console.error(err);

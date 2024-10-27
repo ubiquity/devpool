@@ -4,7 +4,7 @@ import { getDirectoryIssueLabelsFromPartnerIssue } from "./get-directory-issue-l
 import { setMetaChanges } from "./set-meta-changes";
 import { setUnavailableLabelToIssue } from "./set-unavailable-label-to-issue";
 
-export async function syncIssueMetaData({ directoryIssue, partnerIssue }: { directoryIssue: GitHubIssue; partnerIssue: GitHubIssue }) {
+export async function updateDirectoryIssue({ directoryIssue, partnerIssue }: { directoryIssue: GitHubIssue; partnerIssue: GitHubIssue }) {
   // remove the "unavailable" label as this adds it and statistics rely on it
   const labelRemoved = getDirectoryIssueLabelsFromPartnerIssue(partnerIssue).filter((label) => label != Labels.UNAVAILABLE);
   const originalLabels = partnerIssue.labels.map((label) => (label as GitHubLabel).name);
@@ -15,14 +15,14 @@ export async function syncIssueMetaData({ directoryIssue, partnerIssue }: { dire
     partnerIssueUrl = partnerIssue.html_url.replace("https://github.com", "https://www.github.com");
   }
 
-  const metaChanges: MetaChanges = {
+  const issueDelta: IssueDelta = {
     title: directoryIssue.title !== partnerIssue.title,
     body: directoryIssue.body !== partnerIssueUrl,
     labels: !areEqual(originalLabels, labelRemoved),
   };
 
   const metadata: MetadataInterface = {
-    metaChanges,
+    issueDelta,
     partnerIssue,
     directoryIssue,
     labelRemoved,
@@ -37,14 +37,14 @@ function areEqual(a: string[], b: string[]) {
 }
 
 export interface MetadataInterface {
-  metaChanges: MetaChanges;
+  issueDelta: IssueDelta;
   partnerIssue: GitHubIssue;
   directoryIssue: GitHubIssue;
   labelRemoved: string[];
   originalLabels: string[];
 }
 
-interface MetaChanges {
+interface IssueDelta {
   title: boolean;
   body: boolean;
   labels: boolean;

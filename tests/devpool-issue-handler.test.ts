@@ -11,7 +11,7 @@ import { GitHubIssue } from "../src/directory/directory";
 import { getPartnerUrls } from "../src/directory/get-partner-urls";
 import { getRepoUrls } from "../src/directory/get-repo-urls";
 import { newDirectoryIssue } from "../src/directory/new-directory-issue";
-import { syncIssueMetaData } from "../src/directory/sync-issue-meta-data";
+import { updateDirectoryIssue } from "../src/directory/update-issue";
 
 const DEVPOOL_OWNER_NAME = "ubiquity";
 const DEVPOOL_REPO_NAME = "devpool-directory";
@@ -97,7 +97,7 @@ describe("handleDevPoolIssue", () => {
 
       const issueInDb = createIssues(devpoolIssue, partnerIssue);
 
-      await syncIssueMetaData({
+      await updateDirectoryIssue({
         directoryIssue: partnerIssue,
         partnerIssue: issueInDb,
       });
@@ -131,7 +131,7 @@ describe("handleDevPoolIssue", () => {
 
       const issueInDb = createIssues(devpoolIssue, partnerIssue);
 
-      await syncIssueMetaData({
+      await updateDirectoryIssue({
         directoryIssue: partnerIssue,
         partnerIssue: issueInDb,
       });
@@ -166,7 +166,7 @@ describe("handleDevPoolIssue", () => {
 
       const issueInDb = createIssues(devpoolIssue, partnerIssue);
 
-      await syncIssueMetaData({
+      await updateDirectoryIssue({
         directoryIssue: partnerIssue,
         partnerIssue: issueInDb,
       });
@@ -187,7 +187,7 @@ describe("handleDevPoolIssue", () => {
 
       createIssues(devpoolIssue, partnerIssue);
 
-      await syncIssueMetaData({
+      await updateDirectoryIssue({
         directoryIssue: partnerIssue,
         partnerIssue: devpoolIssue,
       });
@@ -208,7 +208,7 @@ describe("handleDevPoolIssue", () => {
 
       createIssues(devpoolIssue, partnerIssue);
 
-      await syncIssueMetaData({
+      await updateDirectoryIssue({
         directoryIssue: partnerIssue,
         partnerIssue: devpoolIssue,
       });
@@ -232,7 +232,7 @@ describe("handleDevPoolIssue", () => {
 
       createIssues(devpoolIssue, partnerIssue);
 
-      await syncIssueMetaData({
+      await updateDirectoryIssue({
         directoryIssue: partnerIssue,
         partnerIssue: devpoolIssue,
       });
@@ -260,7 +260,7 @@ describe("handleDevPoolIssue", () => {
 
       createIssues(devpoolIssue, partnerIssue);
 
-      await syncIssueMetaData({
+      await updateDirectoryIssue({
         directoryIssue: partnerIssue,
         partnerIssue: devpoolIssue,
       });
@@ -291,7 +291,7 @@ describe("handleDevPoolIssue", () => {
 
       createIssues(devpoolIssue, partnerIssue);
 
-      await syncIssueMetaData({
+      await updateDirectoryIssue({
         directoryIssue: partnerIssue,
         partnerIssue: devpoolIssue,
       });
@@ -312,7 +312,7 @@ describe("handleDevPoolIssue", () => {
 
       createIssues(devpoolIssue, partnerIssue);
 
-      await syncIssueMetaData({
+      await updateDirectoryIssue({
         directoryIssue: partnerIssue,
         partnerIssue: devpoolIssue,
       });
@@ -340,7 +340,7 @@ describe("handleDevPoolIssue", () => {
 
       createIssues(devpoolIssue, partnerIssue);
 
-      await syncIssueMetaData({
+      await updateDirectoryIssue({
         directoryIssue: partnerIssue,
         partnerIssue: devpoolIssue,
       });
@@ -362,7 +362,7 @@ describe("handleDevPoolIssue", () => {
 
       const issueInDb = createIssues(devpoolIssue, partnerIssue);
 
-      await syncIssueMetaData({
+      await updateDirectoryIssue({
         directoryIssue: partnerIssue,
         partnerIssue: issueInDb,
       });
@@ -402,7 +402,7 @@ describe("handleDevPoolIssue", () => {
 
       const issueInDb = createIssues(devpoolIssue, partnerIssue);
 
-      await syncIssueMetaData({
+      await updateDirectoryIssue({
         directoryIssue: partnerIssue,
         partnerIssue: issueInDb,
       });
@@ -436,7 +436,7 @@ describe("handleDevPoolIssue", () => {
 
       const issueInDb = createIssues(devpoolIssue, partnerIssue);
 
-      await syncIssueMetaData({
+      await updateDirectoryIssue({
         directoryIssue: partnerIssue,
         partnerIssue: issueInDb,
       });
@@ -472,7 +472,7 @@ describe("handleDevPoolIssue", () => {
 
       const issueInDb = createIssues(devpoolIssue, partnerIssue);
 
-      await syncIssueMetaData({
+      await updateDirectoryIssue({
         directoryIssue: partnerIssue,
         partnerIssue: issueInDb,
       });
@@ -507,7 +507,7 @@ describe("handleDevPoolIssue", () => {
 
       const issueInDb = createIssues(devpoolIssue, partnerIssue);
 
-      await syncIssueMetaData({
+      await updateDirectoryIssue({
         directoryIssue: partnerIssue,
         partnerIssue: issueInDb,
       });
@@ -541,7 +541,7 @@ describe("handleDevPoolIssue", () => {
 
       const issueInDb = createIssues(devpoolIssue, partnerIssue);
 
-      await syncIssueMetaData({
+      await updateDirectoryIssue({
         directoryIssue: partnerIssue,
         partnerIssue: issueInDb,
       });
@@ -582,7 +582,7 @@ describe("handleDevPoolIssue", () => {
 
       const issueInDb = createIssues(devpoolIssue, partnerIssue);
 
-      await syncIssueMetaData({
+      await updateDirectoryIssue({
         directoryIssue: partnerIssue,
         partnerIssue: issueInDb,
       });
@@ -616,7 +616,7 @@ describe("handleDevPoolIssue", () => {
 
       createIssues(devpoolIssue, projectIssue);
 
-      await syncIssueMetaData({
+      await updateDirectoryIssue({
         directoryIssue: projectIssue,
         partnerIssue: devpoolIssue,
       });
@@ -659,7 +659,7 @@ describe("handleDevPoolIssue", () => {
 
       createIssues(devpoolIssue, projectIssue);
 
-      await syncIssueMetaData({
+      await updateDirectoryIssue({
         directoryIssue: projectIssue,
         partnerIssue: devpoolIssue,
       });
@@ -706,7 +706,7 @@ describe("handleDevPoolIssue", () => {
 
       createIssues(devpoolIssue, projectIssue);
 
-      await syncIssueMetaData({
+      await updateDirectoryIssue({
         directoryIssue: projectIssue,
         partnerIssue: devpoolIssue,
       });
@@ -746,7 +746,7 @@ describe("handleDevPoolIssue", () => {
 
       createIssues(devpoolIssue, projectIssue);
 
-      await syncIssueMetaData({
+      await updateDirectoryIssue({
         directoryIssue: projectIssue,
         partnerIssue: devpoolIssue,
       });
@@ -793,7 +793,7 @@ describe("handleDevPoolIssue", () => {
 
       createIssues(devpoolIssue, projectIssue);
 
-      await syncIssueMetaData({
+      await updateDirectoryIssue({
         directoryIssue: projectIssue,
         partnerIssue: devpoolIssue,
       });
@@ -960,7 +960,7 @@ describe("handleDevPoolIssue", () => {
   }
 
   async function validateClosed(projectIssue: GitHubIssue, devpoolIssue: GitHubIssue) {
-    await syncIssueMetaData({
+    await updateDirectoryIssue({
       directoryIssue: projectIssue,
       partnerIssue: devpoolIssue,
     });
@@ -981,7 +981,7 @@ describe("handleDevPoolIssue", () => {
   }
 
   async function validateOpen(projectIssue: GitHubIssue, devpoolIssue: GitHubIssue) {
-    await syncIssueMetaData({
+    await updateDirectoryIssue({
       directoryIssue: projectIssue,
       partnerIssue: devpoolIssue,
     });
@@ -1611,17 +1611,17 @@ describe("calculateStatistics", () => {
     } as GitHubIssue;
 
     createIssues(devpoolIssue, projectIssue1);
-    await syncIssueMetaData({
+    await updateDirectoryIssue({
       directoryIssue: projectIssue1,
       partnerIssue: devpoolIssue,
     });
     createIssues(devpoolIssue2, projectIssue2);
-    await syncIssueMetaData({
+    await updateDirectoryIssue({
       directoryIssue: projectIssue2,
       partnerIssue: devpoolIssue2,
     });
     createIssues(devpoolIssue3, projectIssue3);
-    await syncIssueMetaData({
+    await updateDirectoryIssue({
       directoryIssue: projectIssue3,
       partnerIssue: devpoolIssue3,
     });
@@ -1685,7 +1685,7 @@ describe("calculateStatistics", () => {
     } as GitHubIssue;
 
     createIssues(devpoolIssue, projectIssue1);
-    await syncIssueMetaData({
+    await updateDirectoryIssue({
       directoryIssue: projectIssue1,
       partnerIssue: devpoolIssue,
     });

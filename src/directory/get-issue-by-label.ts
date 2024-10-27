@@ -2,14 +2,14 @@ import { GitHubIssue, GitHubLabel } from "./directory";
 
 /**
  * Returns issue by label
- * @param issues issues array
- * @param label label string
+ * @param searchIssues issues array
+ * @param searchLabel label string
  */
 
-export function getIssueByLabel(issues: GitHubIssue[], label: string) {
-  issues = issues.filter((issue) => {
-    const labels = (issue.labels as GitHubLabel[]).filter((obj) => obj.name === label);
+export function getIssueByLabel(searchIssues: GitHubIssue[], searchLabel: string) {
+  searchIssues = searchIssues.filter((issue) => {
+    const labels = (issue.labels as GitHubLabel[]).filter((obj) => obj.name === searchLabel);
     return labels.length > 0;
   });
-  return issues.length > 0 ? issues[0] : null;
+  return searchIssues.length > 0 ? searchIssues[0] : null;
 }
